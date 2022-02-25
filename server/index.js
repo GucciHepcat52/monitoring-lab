@@ -1,10 +1,12 @@
 const express = require("express");
 const path = require("path");
+require('dotenv').config();
+const {ROLLBAR_ACCESS_TOKEN} = process.env;
 
 // include and initialize the rollbar library with your access token
 const Rollbar = require("rollbar");
 const rollbar = new Rollbar({
-  accessToken: "0587b4efbd614202b5c79ecb6fc58837",
+  accessToken: `${ROLLBAR_ACCESS_TOKEN}`,
   captureUncaught: true,
   captureUnhandledRejections: true,
 });
